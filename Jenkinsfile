@@ -4,11 +4,6 @@ pipeline {
   tools {
     maven 'm3'
   }
-  environment {
-    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-    IMAGE = readMavenPom().getArtifactId()
-    VERSION = readMavenPom().getVersion()
-  }
   stages {
     stage('git') {
       steps{
@@ -27,7 +22,9 @@ pipeline {
     {
      
       steps{
-        echo VERSION
+        sh '''
+        docker login -u anmol -p $d1_PWD
+
         
       }
     }
