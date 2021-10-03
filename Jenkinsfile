@@ -13,11 +13,11 @@ pipeline {
       steps{
       echo "hi"
         script{
-          pom = readMavenPom(file: 'pom.xml')
+            def mavenPom = readMavenPom file: 'pom.xml'
+            version: "$(mavenPom.version)"
+         }
 
-            def pom_version = pom.version
-        }
-        echo "${pom_version}"
+       
       }
   }
 }
