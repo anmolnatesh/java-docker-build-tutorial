@@ -4,11 +4,12 @@ pipeline {
   agent any
   stages{
     stage('read'){
+      steps{
       echo "hi"
       echo version
     }
   }
 }
-
+}
 
 
