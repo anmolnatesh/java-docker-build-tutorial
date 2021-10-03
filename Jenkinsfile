@@ -1,4 +1,4 @@
-def pom = readMavenPom file: 'pom.xml'
+
 pipeline {
   agent any
   tools {
