@@ -22,7 +22,7 @@ pipeline {
     {
      
       steps{
-        echo ${version}
+        echo version
         
       }
     }
