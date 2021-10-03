@@ -1,3 +1,4 @@
+def version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
 pipeline {
   agent any
   tools {
@@ -21,8 +22,8 @@ pipeline {
     {
      
       steps{
-        sh '''
-        docker buil
+        echo ${version}
+        
       }
     }
   }
