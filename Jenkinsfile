@@ -1,5 +1,5 @@
 
-
+def mavenPom = readMavenPom file: 'pom.xml'
 
 pipeline {
   agent any
@@ -13,7 +13,7 @@ pipeline {
       steps{
       echo "hi"
         script{
-            def mavenPom = readMavenPom file: 'pom.xml'
+            
             
          }
 
