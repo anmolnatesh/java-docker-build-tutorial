@@ -24,9 +24,9 @@ pipeline {
     stage('docker')
     {
       steps{
-        sh '''
-        docker build -t anmolnatesh/try:1 .
-        '''
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
       }
     }
   }
