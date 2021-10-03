@@ -1,4 +1,4 @@
-pom = readMavenPom(file: 'pom.xml')
+
 
 
 pipeline {
