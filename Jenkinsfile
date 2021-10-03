@@ -14,7 +14,7 @@ pipeline {
       echo "hi"
         script{
             def mavenPom = readMavenPom file: 'pom.xml'
-            version: "$(mavenPom.version)"
+            
          }
 
        
