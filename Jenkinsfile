@@ -27,6 +27,7 @@ pipeline {
     }
     stage('docker')
     {
+      agent { docker { image 'docker:windowsservercore-1809'}}
       steps{
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
