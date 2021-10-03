@@ -42,6 +42,7 @@ pipeline {
         dockerImage.push("latest")
       }
     }
+            echo version
   }
     }
       
