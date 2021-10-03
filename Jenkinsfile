@@ -9,8 +9,7 @@ pipeline {
     registry = "anmolnatesh/try"
     registryCredential = 'docker'
     dockerImage = ''
-    mavenPom = readMavenPom file: 'pom.xml'
-    version  = mavenPom.version
+    version  = ''
   }
   stages {
     stage('git') {
@@ -36,6 +35,8 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{    script {
+        def mavenPom = readMavenPom file: 'pom.xml'
+        version  = mavenPom.version
         docker.withRegistry( '', registryCredential ) {
         dockerImage.push("${version}")
         dockerImage.push("latest")
