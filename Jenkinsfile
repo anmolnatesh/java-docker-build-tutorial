@@ -3,6 +3,9 @@ pipeline {
   tools {
     maven 'm3'
   }
+  environment {
+    registry = "anmolnatesh/try"
+    registryCredential = 'docker'
   stages {
     stage('git') {
       steps{
@@ -21,9 +24,7 @@ pipeline {
     {
      
       steps{
-        sh '''
-        docker login -u anmolnatesh -p $d1_PWD
-        '''
+        docker.build registry + ":$BUILD_NUMBER"
 
         
       }
