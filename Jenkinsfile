@@ -12,12 +12,7 @@ pipeline {
     stage('read'){
       steps{
       echo "hi"
-        script{
-            
-            
-         }
-
-       
+              
       }
   }
 }
