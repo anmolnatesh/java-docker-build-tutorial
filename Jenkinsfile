@@ -1,50 +1,12 @@
+def pom = readMavenPom file: 'pom.xml'
+def version = pom.version
 pipeline {
   agent any
-  tools {
-    maven 'm3'
-  }
-  environment {
-    registry = "anmolnatesh/try"
-    registryCredential = 'docker'
-    dockerImage = ''
-  }
-  stages {
-    stage('git') {
-      steps{
-        checkout scm
-          }
+  stages{
+    stage('read'){
+      echo "hi"
+      echo version
     }
-    stage('build') {
-      steps{
-        sh '''
-        mvn package
-        ls target
-        '''
-      }
-    }
-    stage('docker')
-    {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    stage('Deploy Image') {
-      steps{    script {
-        docker.withRegistry( '', registryCredential ) {
-        dockerImage.push("${BUILD_NUMBER}")
-        dockerImage.push("latest")
-      }
-    }
-  }
-    }
-      stage('Remove image'){
-        steps{
-          sh "docker rmi $registry:$BUILD_NUMBER"
-          sh "docker rmi $registry:latest"
-}
-      }
   }
 }
 
