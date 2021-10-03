@@ -22,7 +22,7 @@ pipeline {
      
       steps{
         sh '''
-        docker login -u anmol -p $d1_PWD
+        docker login -u anmolnatesh -p $d1_PWD
         '''
 
         
