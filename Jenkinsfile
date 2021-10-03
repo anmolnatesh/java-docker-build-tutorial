@@ -16,6 +16,7 @@ pipeline {
           pom = readMavenPom(file: 'pom.xml')
 
             def pom_version = pom.version
+        }
       }
   }
 }
