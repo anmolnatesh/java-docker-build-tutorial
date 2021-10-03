@@ -15,7 +15,7 @@ pipeline {
       }
 
       echo "hi"
-              
+        sh "echo ${version}"        
       }
   }
 }
