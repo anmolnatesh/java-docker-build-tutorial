@@ -17,6 +17,7 @@ pipeline {
 
             def pom_version = pom.version
         }
+        echo pom_version
       }
   }
 }
