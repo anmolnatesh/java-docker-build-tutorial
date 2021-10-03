@@ -1,6 +1,4 @@
 
-def mavenPom = readMavenPom file: 'pom.xml'
-
 pipeline {
   agent any
   stages{
@@ -11,6 +9,11 @@ pipeline {
     }
     stage('read'){
       steps{
+      script{
+        def mavenPom = readMavenPom file: 'pom.xml'
+        def version  = mavenPom.version
+      }
+
       echo "hi"
               
       }
