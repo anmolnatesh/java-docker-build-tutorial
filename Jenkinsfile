@@ -1,4 +1,3 @@
-
 pipeline {
   agent any
   tools {
@@ -24,6 +23,7 @@ pipeline {
       steps{
         sh '''
         docker login -u anmol -p $d1_PWD
+        '''
 
         
       }
