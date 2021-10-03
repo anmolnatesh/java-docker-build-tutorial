@@ -21,7 +21,8 @@ pipeline {
     {
      
       steps{
-        sh "docker --version"
+        sh '''
+        docker buil
       }
     }
   }
