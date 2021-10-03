@@ -1,8 +1,13 @@
-def version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+def pom = readMavenPom file: 'pom.xml'
 pipeline {
   agent any
   tools {
     maven 'm3'
+  }
+  environment {
+    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+    IMAGE = readMavenPom().getArtifactId()
+    VERSION = readMavenPom().getVersion()
   }
   stages {
     stage('git') {
@@ -22,7 +27,7 @@ pipeline {
     {
      
       steps{
-        echo version
+        echo VERSION
         
       }
     }
