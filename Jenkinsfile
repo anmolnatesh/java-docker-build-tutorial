@@ -6,6 +6,7 @@ pipeline {
   environment {
     registry = "anmolnatesh/try"
     registryCredential = 'docker'
+    dockerImage = ''
   }
   stages {
     stage('git') {
@@ -25,7 +26,7 @@ pipeline {
     {
       steps{
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
