@@ -6,6 +6,7 @@ pipeline {
   environment {
     registry = "anmolnatesh/try"
     registryCredential = 'docker'
+  }
   stages {
     stage('git') {
       steps{
